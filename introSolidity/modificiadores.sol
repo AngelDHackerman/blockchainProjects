@@ -1,5 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 
+// ? Los modifiers se ejecutan al inicio de la funcion, para evitar el consumo de Ether y si hay error, salvar ese dinero
+
 pragma solidity >=0.7.0 <0.9.0;
 
 contract modificadores { 
