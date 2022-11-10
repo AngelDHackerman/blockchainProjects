@@ -6,7 +6,7 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract Identity { 
 
-    struct BasicInfo { 
+    struct BasicInfo { // struct BasicInfo, es el tipo de dato, estara compuesto por "name" y "email". Similar a typeScript
         string name;
         string email;
     }
@@ -22,7 +22,7 @@ contract Identity {
     error UserUnAuthorized (address user, UserType userType);
 
     // Variables para guaradar informacion de la cuenta 
-    BasicInfo private basicInfo;
+    BasicInfo private basicInfo;  // ? La variable "basicInfo" sera de tipo "BasicInfo"  y sera visible solo dentro del contrato.
     PersonalInfo private personalInfo;
     address private owner; 
 
@@ -39,7 +39,7 @@ contract Identity {
     // Verificador de autorizacion del usuario 
     modifier authorizeUser (UserType userType) { 
         if (msg.sender == owner || personalUsers[msg.sender]) { 
-            _;
+            _;  // ! "_;" significa que: si la condicion se cumple, dejaremos continuar el codigo
         } else if (userType == UserType.Basic && basicUsers[msg.sender]) { 
             _;
         } else { 
